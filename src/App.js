@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Input from './Input'
+import Display from './Display'
+import React, {useState} from "react"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [cityInput, setCityInput] = useState("");
+    const [wasSubmitted, setWasSubmitted] = useState(false);
+    const [isValidInput, setIsValidInput] = useState(false);
+
+    return (
+        <div>
+            <Input 
+                cityInput = {cityInput}
+                setCityInput = {setCityInput}
+                setWasSubmitted = {setWasSubmitted}
+                setIsValidInput = {setIsValidInput}
+            />
+            <div>
+                {isValidInput && (
+                    <Display 
+                        cityInput = {cityInput}
+                        wasSubmitted = {wasSubmitted}
+                    />
+                )}
+            </div>
+        </div>
+    );
 }
 
 export default App;
