@@ -17,10 +17,11 @@ function App() {
                 setIsValidInput = {setIsValidInput}
             />
             <div>
-                {isValidInput && (
+                {isValidInput && wasSubmitted &&(
                     <Display 
                         cityInput = {cityInput}
-                        wasSubmitted = {wasSubmitted}
+                        setIsValidInput = {setIsValidInput}
+                        setWasSubmitted = {setWasSubmitted}
                     />
                 )}
             </div>
