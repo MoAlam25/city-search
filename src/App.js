@@ -1,7 +1,7 @@
 import './App.css';
 import Input from './Input'
 import Display from './Display'
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 
 function App() {
     const [cityInput, setCityInput] = useState("");
@@ -10,6 +10,8 @@ function App() {
 
     return (
         <div>
+            <header>City Search</header>
+
             <Input 
                 cityInput = {cityInput}
                 setCityInput = {setCityInput}
@@ -20,8 +22,8 @@ function App() {
                 {isValidInput && wasSubmitted &&(
                     <Display 
                         cityInput = {cityInput}
+                        isValidInput = {isValidInput}
                         setIsValidInput = {setIsValidInput}
-                        setWasSubmitted = {setWasSubmitted}
                     />
                 )}
             </div>
